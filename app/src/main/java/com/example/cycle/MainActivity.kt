@@ -26,3 +26,11 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+@Composable
+fun Calculator() {
+    var xText by remember { mutableStateOf("") }
+    var nText by remember { mutableStateOf("") }
+    var result by remember { mutableStateOf("Результат появится здесь") }
+
+}
