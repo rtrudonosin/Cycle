@@ -28,9 +28,28 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Calculator() {
+fun Cycle() {
     var xText by remember { mutableStateOf("") }
     var nText by remember { mutableStateOf("") }
     var result by remember { mutableStateOf("Результат появится здесь") }
 
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(24.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
+    ) {
+        Text(
+            text = "S = x/(4^1+5^3) + ... + x/(4^n+5^(n+2))"
+        )
+
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun CyclePreview() {
+    MaterialTheme {
+        Cycle()
+    }
 }
