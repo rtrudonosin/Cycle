@@ -70,7 +70,36 @@ fun Cycle() {
             modifier = Modifier.fillMaxWidth()
         )
 
+        Button(
+            onClick = {
+                val x = xText.replace(',', '.').toDoubleOrNull()
+                val n = nText.toIntOrNull()
 
+                if (x == null || n == null || n <= 0) {
+                    result = "Ошибка! Введите число x и натуральное n > 0."
+                } else {
+                    var sum = 0.0
+
+                    for (i in 1..n) {
+                        val numerator = x
+                        val denominator =
+                            4.0.pow(i) + 5.0.pow(i + 2)
+
+                        sum += numerator / denominator
+                    }
+
+                    result = "Сумма S = $sum"
+                }
+            },
+            modifier = Modifier.fillMaxWidth()
+        ) {
+            Text("Вычислить")
+        }
+
+        Text(
+            text = result,
+            style = MaterialTheme.typography.bodyLarge
+        )
     }
 }
 
